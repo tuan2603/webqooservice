@@ -1,0 +1,466 @@
+
+<?php
+//register provider
+$url_p = 'http://120.72.107.187:4000/ServiceProviderRegister';
+if(isset($_POST['SIGNUP_P'])){
+        $data_provider = array('first_name' => $_POST['PtxtFName'],
+                      'last_name' => $_POST['PtxtLName'],
+                      'email' => $_POST['PtxtMAil'],
+                      'password' => $_POST['PtxtPass'],
+                      'mobile_number' => $_POST['PtxtMobile'],
+                      'building_name' => $_POST['PtxtBuil'],
+                      'postal_code' => $_POST['PtxtCode'],
+                      'city' => $_POST['Pregion'],
+                      'country' => $_POST['PtxtCountry'],
+                      'birth_date' => $_POST['PtxtBirthday'],
+                      'sex' => $_POST['Psex'],
+                      'company_name' => $_POST['PtxtCompany'],
+                      'retail_outlets' => $_POST['txtRetail'],
+                      'any_operation_overseas' => $_POST['txtAny'],
+                      'status' => $_POST['status'],
+                      'businesstitle_position' => $_POST['PtxtBusiness'],
+                      'job_reponsibilities' => $_POST['PtxtJob'],
+                      'office_number' => $_POST['PtxtOffice'],
+                      'main_office_address1' => $_POST['PtxtAdress1'],
+                      'main_office_address2' => $_POST['PtxtAdress2']);
+
+
+        $options_provider = array(
+            'http' => array(
+                'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+                'method'  => 'POST',
+                'content' => http_build_query($data_provider)
+            )
+        );
+        $context_provider  = stream_context_create($options_provider);
+        $result_provider = file_get_contents($url_p, false, $context_provider);
+        if ($result_provider === FALSE) { /* Handle error */ }
+
+        var_dump($result_provider);
+    }
+//register member
+//$url_m='http://120.72.107.187:4000/CustomerRegister';
+//if(isset($_POST['SIGNUP_M'])){
+//    $data_member=array(
+//                        'first_name' => $_POST['MtxtFName'],
+//                        'last_name' => $_POST['MtxtLName'],
+//                        'email' => $_POST['MtxtMAil'],
+//                        'password' => $_POST['MtxtPass'],
+//                        'mobile_number' => $_POST['MtxtMobile'],
+//                        'building_name' => $_POST['MtxtBuil'],
+//                        'postal_code' => $_POST['MtxtCode'],
+//                        'city' => $_POST['Mregion'],
+//                        'country' => $_POST['MtxtCountry'],
+//                        'birth_date' => $_POST['MtxtBirthday'],
+//                        'sex' => $_POST['Msex'],
+//                        'home_number' => $_POST['MtxtHome'],
+//                        'address1' => $_POST['MtxtAdress1'],
+//                        'address2' => $_POST['MtxtAdress2'],
+//                        'occupation' => $_POST['MtxtOccupation']);
+//    $options_member=array(
+//                        'http'=>array(
+//                            'header'    =>"content-type:application/x-www-form-urlencoded\r\n",
+//                            'method'    =>'POST',
+//                            'content'   => http_build_query($data_member)
+//                            )
+//                        );
+//    $context_member = stream_context_create($options_member);
+//    $result_member  = file_get_contents($url_m,false, $context_member);
+//    if($result_member == false){
+//        
+//    }
+//    var_dump($result_member);
+//}
+?>
+<html>
+    <head>
+        <title>LOGIN</title>
+
+    </head>
+    <body>
+        <div class="container-fluid mycontent">
+            <div class="container" style="margin-top:100px;margin-bottom:100px;border:1px solid #a8a8a8; background-color:white;">
+<!--                question-->
+                <div class="row" >
+                    <div class=" col-xs-12 col-md-12 text-right">
+                       <a class="btn btn-primary btn-md" data-toggle="modal" data-target="#question" style="margin-top:10px;">
+                            <span class="glyphicon glyphicon-question-sign" ></span>
+                        </a>
+                         <div class="modal fade text-center" id="question" role="dialog">
+                            <div class="modal-dialog model-md">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h3><strong>HELP?</strong></h3>
+                                     </div>
+                                    <div class="modal-body">
+                                        <p style="font-size:20px;">If you are a consumer looking for the services you need, please fill in your personal details here.</p>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+<!--                    answers-->
+                   
+                </div>
+                <div class="row" style="margin-bottom:30px;">
+                    <div class=" col-xs-12 col-md-12 text-center ">
+ 
+                        <a href="#provider" data-toggle="tab" class="action text-center"><h3 class="btn btn-primary"><strong>SERVICE PROVIDER</strong></h3></a>
+                        <a href="#member" data-toggle="tab" ><h3 class="btn btn-primary"><strong>MEMBERS</strong></h3><br></a>
+             
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="tab-content">
+                    <!--            member form-->
+                    <div class="col-md-9 tab-pane fade in " id="member" >
+                        <span>
+                            <form action="index.php?page=register" role="form1" method="POST">
+                                <div class="row form-group">
+                                    <label for="Fname" class="col-sm-3 control-label" style="text-align:right;">First name<i
+                                            style="color:red">*</i></label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="MtxtFName" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="Fname" class="col-sm-3 control-label" style="text-align:right;">Last name<i
+                                            style="color:red">*</i></label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="MtxtLName" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="email" class="col-sm-3 control-label" style="text-align:right;">Email<i
+                                            style="color:red">*</i></label>
+
+                                    <div class="col-sm-9">
+                                        <input type="email" name="MtxtMAil" id="MtxtMAil"class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="email" class="col-sm-3 control-label" style="text-align:right;">Confirm Email <i
+                                            style="color:red">*</i></label>
+                                    <div class="col-sm-9">
+                                        <input type="email" name="MtxtCMAil" id="MtxtCMAil" class="form-control" required>
+                                        <span id="testmailMember" style="color:red"></span>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="pass" class="col-sm-3 control-label" style="text-align:right;">Password<i
+                                            style="color:red">*</i></label>
+                                    <div class="col-sm-9">
+                                        <input type="password" name="MtxtPass" id="MtxtPass"class="form-control" required>
+                                    </div>
+                                </div>
+                                 <div class="row form-group">
+                                    <label for="pass" class="col-sm-3 control-label" style="text-align:right;">Confirm Password<i
+                                            style="color:red">*</i></label>
+                                    <div class="col-sm-9">
+                                        <input type="password" name="MtxtCPass" id="MtxtCPass" class="form-control" required>
+                                        <span id="testpassMember" style="color:red;"></span>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="mobile" class="col-sm-3 control-label text-right">Mobile number<i
+                                            style="color:red">*</i></label>
+                                    <div class="col-sm-3">
+                                        <input type="tel" name="MtxtMobile" class="form-control" required>
+                                    </div>
+                                    <label for="telephone" class="col-sm-2 control-label">Home number<i style="color:red">*</i></label>
+                                    <div class="col-sm-4">
+                                        <input type="tel" name="MtxtHome" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="business" class="col-sm-3 control-label" style="text-align:right;">
+                                        Adress 1<i style="color:red">*</i></label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="MtxtAdress1" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="business" class="col-sm-3 control-label" style="text-align:right;">
+                                        Adress 2<i style="color:red">*</i></label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="MtxtAdress2" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="business" class="col-sm-3 control-label" style="text-align:right;">Building Name<i style="color:red">*</i></label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="MtxtBuil" class="form-control" required>
+                                    </div>
+                                </div>
+                                 <div class="row form-group">
+                                    <label for="business" class="col-sm-3 control-label" style="text-align:right;">Postal code<i style="color:red">*</i></label>
+                                    <div class="col-sm-3">
+                                        <input type="tel" name="MtxtCode" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="region" class="col-sm-3 control-label" style="text-align:right;">City/District</label>
+                                    <div class="col-sm-3">
+                                        <select name="Mregion" class="form-control selectpicker" data-live-search="true">
+                                           <?php
+                                                $json_data_city=json_decode($data_city,true);
+                                                foreach($json_data_city as $val){
+                                                    foreach($val as $value){
+                                                        echo '<option data-tokens="'.$value['city_name'].'">'.$value['city_name'].'</option>';
+                                                    }
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>  
+                                <div class="row form-group">
+                                    <label for="country" class="col-sm-3 control-label"
+                                           style="text-align:right;">Country</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" name="MtxtCountry" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="country" class="col-sm-3 control-label"
+                                           style="text-align:right;">Birthday</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" name="MtxtBirthday"  class="form-control birthday" >
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="country" class="col-sm-3 control-label"
+                                           style="text-align:right;">Sex(M/F)</label>
+                                    <div class="col-sm-4">
+                                        <input type="radio" name="Msex" value="Male"> Male
+                                        <input type="radio" name="Msex" style="margin-left:30px;" value="Female"> Female
+                                        <input type="radio" name="Msex" style="margin-left:30px;" value="Others"> Others
+                                    </div>
+                                </div>
+                                 <div class="row form-group">
+                                    <label for="business" class="col-sm-3 control-label" style="text-align:right;">Occupation</label>
+                                    <div class="col-sm-9">
+                                        <input type="tel" name="MtxtOccupation" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-sm-10 col-sm-offset-2 text-center">
+                                        <button type="submit"  value="SIGNUP_M" name="SIGNUP_M" class="btn btn-primary " onclick="return testMember()">SIGN UP</button>
+                                        <button type="reset"  value="Reset" class="btn btn-primary ">CANCEL</button>
+                                    </div>
+                                </div>
+                               
+                            </form>
+                        </span>
+                    </div>
+<!--                    provider form-->
+                    <div class="col-md-9 tab-pane fade in active" id="provider" >
+                        <span>
+                            <form action="index.php?page=register" method="POST" role="form">
+                                <div class="row form-group">
+                                    <label for="Fname" class="col-sm-3 control-label" style="text-align:right;">Company name<i
+                                            style="color:red">*</i></label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="PtxtCompany" class="form-control" required pattern="[a-z]{1,50}" title="Company name only enter 1-50 characters">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="Fname" class="col-sm-3 control-label" style="text-align:right;">Retail outlets<i
+                                            style="color:red">*</i></label>
+                                    <div class="col-sm-9">
+                                        <input type="radio" name="txtRetail"  id="yesR" required > Yes
+                                        <input type="radio" name="txtRetail"  id="noR" required style="margin-left:30px;" value="No"> No
+                                        <input type="tel" name="txtRetail"  id="txtRetail"  style="border-radius:4px;" pattern="[0-9]{1,2}">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="Fname" class="col-sm-3 control-label" style="text-align:right;">Any operations overeas<i
+                                            style="color:red">*</i></label>
+                                    <div class="col-sm-9">
+                                        <input type="radio" name="txtAny"  id="yesA" required > Yes
+                                        <input type="radio" name="txtAny"  id="noA" required style="margin-left:30px;" value="No"> No
+                                        <input type="text" name="txtAny"  id="txtAny"  style="border-radius:4px;" pattern="[a-z]{1,50}" title="Only enter text">
+                                    </div>
+                                    <script>
+                                           
+                                       
+                                    </script>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="region" class="col-sm-3 control-label" style="text-align:right;">Status</label>
+                                    <div class="col-sm-3">
+                                        <select name="status" class="form-control " data-live-search="true">
+                                            <option >Mr</option>
+                                            <option >Mrs</option>
+                                            <option >Ms</option>
+                                            <option >Miss</option>
+                                            <option >Madam</option>
+                                        </select>
+                                    </div>
+                                </div> 
+                                <div class="row form-group">
+                                    <label for="Fname" class="col-sm-3 control-label" style="text-align:right;" >First Name<i style="color:red">*</i></label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="PtxtFName" class="form-control" required pattern="[a-zA-Z0-9]{1,30}" title="First name only enter 1-30 characters">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="Fname" class="col-sm-3 control-label" style="text-align:right;" >Last name<i
+                                            style="color:red">*</i></label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="PtxtLName" class="form-control" required pattern="[a-zA-Z0-9]{1,30}" title="Last name only enter 1-30 characters">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="Fname" class="col-sm-3 control-label" style="text-align:right;">Business Title/Position<i
+                                            style="color:red">*</i></label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="PtxtBusiness" class="form-control" required pattern="[a-zA-Z0-9]{1,30}" title="Business Title only enter 1-30 characters">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="Fname" class="col-sm-3 control-label" style="text-align:right;">Job responsibilities<i
+                                            style="color:red">*</i></label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="PtxtJob" class="form-control" required pattern="[a-zA-Z0-9]{1,50}" title="Job responsibilities only enter 1-30 characters">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="email" class="col-sm-3 control-label" style="text-align:right;">Email<i
+                                            style="color:red">*</i></label>
+
+                                    <div class="col-sm-9">
+                                        <input type="email" name="PtxtMAil" id="PtxtMAil" class="form-control" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="row form-group">
+                                    <label for="email" class="col-sm-3 control-label" style="text-align:right;">Confirm Email <i
+                                            style="color:red">*</i></label>
+                                    <div class="col-sm-9">
+                                        <input type="email" name="PtxtCMAil" id="PtxtCMAil" class="form-control"  required>
+                                        <span id="testmailProvider" style="color:red;"></span>
+                                    </div>
+                                </div>
+                               
+                                <div class="row form-group">
+                                    <label for="pass" class="col-sm-3 control-label" style="text-align:right;">Password<i
+                                            style="color:red">*</i></label>
+                                    <div class="col-sm-9">
+                                        <input type="password" name="PtxtPass" id="PtxtPass" class="form-control" required>
+                                    </div>
+                                </div>
+                                 <div class="row form-group">
+                                    <label for="pass" class="col-sm-3 control-label" style="text-align:right;">Confirm Password<i
+                                            style="color:red">*</i></label>
+                                    <div class="col-sm-9">
+                                        <input type="password" name="PtxtCPass" id="PtxtCPass" class="form-control" required>
+                                        <span id="testpassProvider" style="color:red;"></span>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="mobile" class="col-sm-3 control-label text-right">Mobile number<i
+                                            style="color:red">*</i></label>
+                                    <div class="col-sm-3">
+                                        <input type="tel" name="PtxtMobile" class="form-control" required pattern="[0-9]{5,20}" title="Mobile number only enter number">
+                                    </div>
+                                    <label for="telephone" class="col-sm-2 control-label">Office Number & Extension<i style="color:red">*</i></label>
+                                    <div class="col-sm-4">
+                                        <input type="tel" name="PtxtOffice" class="form-control" required pattern="[0-9]{5,20}" title="Office Number & Extension only enter number">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="business" class="col-sm-3 control-label" style="text-align:right;">
+                                        Main office Address 1<i style="color:red">*</i></label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="PtxtAdress1" class="form-control" required pattern="[a-zA-Z0-9]{1,50}">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="business" class="col-sm-3 control-label" style="text-align:right;">
+                                       Main office Address 2<i style="color:red">*</i></label>
+                                    <div class="col-sm-9">
+                                        <input type="text" iname="PtxtAdress2" class="form-control" required pattern="[a-zA-Z0-9]{1,50}">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="business" class="col-sm-3 control-label" style="text-align:right;">Building Name<i style="color:red">*</i></label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="PtxtBuil" class="form-control" required  >
+                                    </div>
+                                </div>
+                                 <div class="row form-group">
+                                    <label for="business" class="col-sm-3 control-label" style="text-align:right;">Postal code<i style="color:red">*</i></label>
+                                    <div class="col-sm-3">
+                                        <input type="tel" name="PtxtCode" class="form-control" required pattern="[0-9]{1,20}" title="Only enter number">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="region" class="col-sm-3 control-label" style="text-align:right;">City/District</label>
+                                    <div class="col-sm-3">
+                                        <select name="Pregion" class="form-control selectpicker" data-live-search="true">
+                                           <?php
+                                                $json_data_city=json_decode($data_city,true);
+                                                foreach($json_data_city as $val){
+                                                    foreach($val as $value){
+                                                    echo '<option data-tokens="'.$value['city_name'].'">'.$value['city_name'].'</option>';
+                                                    }
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>  
+                                <div class="row form-group">
+                                    <label for="country" class="col-sm-3 control-label"
+                                           style="text-align:right;">Country</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" name="PtxtCountry" class="form-control" >
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="country" class="col-sm-3 control-label"
+                                           style="text-align:right;">Birthday</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" name="PtxtBirthday" class="form-control birthday">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="country" class="col-sm-3 control-label"
+                                           style="text-align:right;">Sex(M/F)</label>
+                                    <div class="col-sm-4">
+                                        <input type="radio" name="Psex" value="Male"> Male
+                                        <input type="radio" name="Psex" style="margin-left:30px;" value="Female"> Female
+                                        <input type="radio" name="Psex" style="margin-left:30px;" value="Others"> Others
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-sm-10 col-sm-offset-2 text-center">
+                                        <button type="submit"  value="SIGNUP_P" name="SIGNUP_P" class="btn btn-primary " onclick="return testProvider()" >SIGN UP </button>
+                                        <button type="reset"  value="Reset" class="btn btn-primary ">CANCEL</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </span>
+                    </div>
+                    </div>
+                    <!--            end form register-->
+                    <!--                Sign Facebook and Google-->
+                    <div class="col-md-3">
+                        <div style="margin-bottom:50px;">
+                            <a class="btn btn-block btn-social btn-facebook ">
+                                <i class="fa fa-facebook"></i> Sign in with Facebook
+                            </a>
+                            <a class="btn btn-block btn-social btn-google-plus">
+                                <i class="fa fa-google-plus"></i> Sign in with Google
+                            </a>
+                        </div>
+                    </div>
+                    <!--         end  Sign Facebook and Google-->
+                </div>
+            </div>
+        </div>
+         <script type="text/javascript">
+
+        </script>
+    </body>
+</html>

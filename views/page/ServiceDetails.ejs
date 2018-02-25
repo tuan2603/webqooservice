@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Service Details</title>
+        <link rel="stylesheet" type="text/css" href="./css/stars.css"/>
+        <link rel="stylesheet" type="text/css" href="./css/slider_vertical.css"/>
+        <link rel="stylesheet" type="text/css" href="./css/stars_review.css"/>
+        <style>
+            @media screen and (max-device-width: 767px) {
+                .col-xss-2 {
+                    position: relative;
+                    padding-right: 14px;
+                    padding-left: 14px;
+                    width: 20%;
+                    float: left;
+                }
+            }
+
+            @media screen and (min-device-width: 767px) {
+                .slide-horizontal-hide {
+                    display: none;
+                }
+            }
+
+            .tab-pane {
+                margin-top: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid" style="background-color: #ffffff">
+            <div class="container myfooter">
+                <span><p style="margin:10px;">Home/ Education/ Enrichment classes for children/ Name of service</p></span>
+            </div>
+            <div class="container" style="margin-bottom:50px;">
+                <div class="row">
+                    <h3>Cooking class for children</h3>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <span class="stars-container stars-80">★★★★★</span>
+                        <a href="">(10)</a>
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                        <a>Write a review</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <p>
+                            <span style="padding-top:-50px;">Service provider:</span>
+                            <a href="">Chef G.R.</a>
+                            <img src="./img/cooking.PNG">
+                            <a href="" style="margin-top:70px;">More services from this Service Provider</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <style>
+                        @media screen and (max-device-width: 767px) {
+                            .slide-hide-on-mobile {
+                                display: none;
+                            }
+                            .border-hide {
+                                border-right: 1px solid white;
+                            }
+                        }
+                        @media screen and (min-device-width: 767px) {
+                            .border-hide {
+                                border-right: 1px solid #135894;
+                            }
+                        }
+                    </style>
+                    <!--                slider vertical-->
+                    <div class="col-sm-1 col-md-1">
+                        <div id="carousel-pager" class="carousel slide slide-hide-on-mobile  " data-ride="carousel"
+                             data-interval="50000">
+                            <!-- Carousel items -->
+                            <div class="carousel-inner vertical ">
+                                <?php
+                                    $json_data = json_decode($data);
+                                    $jss=$json_data[0];
+                                    $image=$jss[0]->image;
+                                    $i = 0; 
+                                    foreach($image as $image)
+                                    {
+                                        if($i ==1){
+                                            echo '<div class="item active">';
+                                        }else{
+                                            echo '<div class="item">';
+                                        }
+                                ?>
+                                                <a href="">
+                                                        <img src="<?php echo $image; ?>" class=" img-responsive sizeslider" style="width:68px;height:68px;"
+                                                    data-target="#carousel-main" data-slide-to="<?php echo $i?>">
+                                                </a>
+                                 <?php
+                                    echo '</div>'; 
+                                        $i++;  
+                                    }
+                                ?>
+<!--
+                                <div class="active item">
+                                    
+                                </div>
+                                <div class="item">
+                                    <a href=""><img src="./img/slider/4.PNG" class="img-responsive sizeslider"
+                                                    data-target="#carousel-main" data-slide-to="1"></a>
+                                </div>
+                                <div class="item">
+                                    <a href=""><img src="./img/slider/3.PNG" class="img-responsive sizeslider"
+                                                    data-target="#carousel-main" data-slide-to="2"></a>
+                                </div>
+                                <div class="item">
+                                    <a href=""><img src="./img/slider/5.PNG" class="img-responsive sizeslider"
+                                                    data-target="#carousel-main" data-slide-to="3"></a>
+                                </div>
+                                <div class="item">
+                                    <a href=""><img src="./img/slider/6.PNG" class="img-responsive sizeslider"
+                                                    data-target="#carousel-main" data-slide-to="4"></a>
+                                </div>
+-->
+                            </div>
+                            <!-- Controls -->
+                            <a class="left carousel-control" href="#carousel-pager" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-up" aria-hidden="true" style="color:#8c8c8c;"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-pager" role="button" data-slide="next"
+                               style="margin-bottom:-30px">
+                                <span class="glyphicon glyphicon-chevron-down" aria-hidden="true" style="color:#8c8c8c;"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!--                slider horizontal-->
+                    <!--                image main-->
+                    <div class="col-xs-12 col-sm-5 col-md-5 border-hide" style="margin-bottom:25px;">
+                        <div id="carousel-main" class="carousel slide " data-ride="carousel" data-interval="0">
+                            <!-- Carousel items -->
+                            <div class="carousel-inner">
+                                <?php
+                                    $json_data = json_decode($data);
+                                    $jss=$json_data[0];
+                                    $image=$jss[0]->image;
+                                    $i = 0; 
+                                    foreach($image as $image)
+                                    {
+                                         
+                                        if($i ==1){
+                                            echo '<div class="item active">';
+                                        }else{
+                                            echo '<div class="item">';
+                                        }
+                                ?>
+                                            <img src="<?php echo $image; ?>" class="img-responsive" style="width:479px; height:527px;">
+                                <?php
+                                    echo '</div>';
+                                        $i++;
+                                    }
+                                ?>
+<!--
+                                <div class="active item">
+                                    <img src="./img/DetailPro/1.PNG" class="img-responsive ">
+                                </div>
+                                <div class="item">
+                                    <img src="./img/DetailPro/2.PNG" class="img-responsive ">
+                                </div>
+                                <div class="item">
+                                    <img src="./img/DetailPro/3.PNG" class="img-responsive ">
+                                </div>
+                                <div class="item">
+                                    <img src="./img/DetailPro/4.PNG" class="img-responsive ">
+                                </div>
+                                <div class="item">
+                                    <img src="./img/DetailPro/5.PNG" class="img-responsive ">
+                                </div>
+-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row slide-horizontal-hide" style="margin-top:50px;">
+                        <div id="detail" class="carousel carousel-correspondence slide " data-ride="carousel" data-interval="0">
+                            <div class="col-xs-12 ">
+                                <div class="carousel-inner ">
+                                <?php
+                                    $json_data = json_decode($data);
+                                    $jss=$json_data[0];
+                                    $image=$jss[0]->image;
+                                    $i = 0; 
+                                    foreach($image as $image)
+                                    {
+                                        if($i ==1){
+                                            echo '<div class="item active">';
+                                        }else{
+                                            echo '<div class="item">';
+                                        }
+                                ?>
+                                    <div class=" col-xss-2 ">
+                                            <div class="row">
+                                                <a href="">
+                                                    <img src="<?php echo $image; ?>" alt="a" class="  " style="width:68px;height:68px;"
+                                                     data-target="#carousel-main" data-slide-to="<?php echo $i; ?>"/>
+                                                </a>
+                                            </div>
+                                    </div>
+                                <?php
+                                    echo '</div>'; 
+                                        $i++; 
+                                    }
+                                 
+                                ?>
+<!--
+                                    <div class="item active">
+                                        <div class=" col-xss-2 ">
+                                            <a href="">
+                                                
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="col-xss-2 ">
+
+                                            <a href="">
+                                                <img src="./img/slider/4.PNG" alt="a" class="img-responsive"
+                                                     data-target="#carousel-main" data-slide-to="1"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="col-xss-2 ">
+                                            <a href="">
+                                                <img src="./img/slider/3.PNG" alt="a" class="img-responsive "
+                                                     data-target="#carousel-main" data-slide-to="2"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="col-xss-2">
+                                            <a href="">
+                                                <img src="./img/slider/5.PNG" alt="a" class="img-responsive "
+                                                     data-target="#carousel-main" data-slide-to="3"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="col-xss-2 ">
+                                            <a href="">
+                                                <img src="./img/slider/6.PNG" alt="a" class="img-responsive"
+                                                     data-target="#carousel-main" data-slide-to="4"/>
+                                            </a>
+                                        </div>
+                                    </div>
+-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-sm-5 col-md-5">
+                        <div class="row" style="margin-top:40px;">
+                            <div class="col-md-12">
+                                <ul>
+                                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-12">
+                                <ul>
+                                    <li>Lorem Ipsum has been the industry's standard dummy text
+                                        ever since the 1500s, when an unknown printer took a galley
+                                        of type and scrambled it to make a type specimen book.
+                                        [Service description]
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-12">
+                                <ul>
+                                    <li>Lorem Ipsum has been the industry's standard dummy text
+                                        ever since the 1500s
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-12">
+
+                                <h4 style="color:#666666; padding-left:35px;">
+                                    Item Qty
+                                    <select style="background-color:#e0e0e0;width:60px;height:30px;margin-left:20px;">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                </h4>
+                            </div>
+                            <div class="col-md-12">
+                                <h3 style=" padding-left:35px;">USD 99.00</h3>
+                            </div>
+                            <div class="col-md-12">
+                                <button type="button" style="background-color:#135894;margin-left:35px;" class="btn btn-primary"
+                                        width="400px;">
+                                    <h3>
+                                        Add to cart
+                                        <img src="./img/giohang.PNG"/ width="30px" height="30px">
+                                    </h3>
+
+                                </button>
+                            </div>
+                            <div class="col-md-12" style="margin-top:30px;margin-left:35px;">
+                                <a href=""><input type="checkbox" name="comparision"> Add to Compare</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:50px;">
+                    <div class="col-xs-12 col-md-12">
+                        <ul class="nav nav-tabs nav-justified">
+                            <li class="borderr" style="border-left:1px solid #acacac;"><a href="#SI" data-toggle="tab">Service Info</a></li>
+                            <li class="active borderr"><a href="#CR" data-toggle="tab">Customer Reviews</a></li>
+                            <li class=" borderr"><a href="#QA" data-toggle="tab">Questions and Answer</a></li>
+                        </ul>
+                        <style>
+                            .nav-tabs.nav-justified>li>a {
+                                border-bottom: 1px solid #135894;
+                                border-top: 1px solid #acacac;
+                                color: #9f9f9f;
+                            }
+
+                            .nav-tabs.nav-justified>.active>a:focus {
+                                color: #424242;
+                                font-size: 15px;
+                                border: 1px solid #135894;
+                                border-bottom: 1px solid white;
+                            }
+
+                            .borderr {
+                                border-right: 1px solid #acacac;
+                            }
+
+                            .borderr a:hover {
+
+                            }
+                        </style>
+                    </div>
+                </div>
+                <div class="tab-content">
+<!--                    question and answers-->
+                    <div id="QA" class="tab-pane fade in ">
+                        <div class="row ">
+                            <div class="col-xs-12 col-md-12" style="border-left: 2px solid #f3f2f2;">
+                                <table class="table">
+                                    <thead>
+
+                                    <tr>
+                                        <div class="row">
+                                            <td class="col-xs-12 col-md-12">Please <a href="">Login</a> or <a href="">Register</a> to ask
+                                                question to the seller.
+                                            </td>
+                                        </div>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h4 style="color:#737373">
+                                                Questions and answers from Fave (2)
+                                            </h4>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <div class="row ">
+                                            <td class="col-xs-12 col-md-12">
+                                                <div class="row row1">
+                                                    <div class="col-xs-4 col-md-1">
+                                                        <img src="./img/user.PNG">
+                                                    </div>
+                                                    <div class="col-xs-8 col-md-10">
+                                                        <div class="cmt">Hi, where is it? Can't seem to find it here</div>
+                                                        <div class="time">Davin - 2 weeks ago</div>
+                                                    </div>
+                                                </div>
+                                                <div class="row row1">
+                                                    <div class="col-xs-4 col-md-1">
+                                                        <img src="./img/admin.PNG">
+                                                    </div>
+                                                    <div class="col-xs-8 col-md-11">
+                                                        <div class="cmt">Apologies it seems we have made a mistake. The reflexology voucher
+                                                            has gone out of stock. Do check out other options if you'd like
+                                                        </div>
+                                                        <div class="time">Fave - answered within 22 minutes</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </div>
+                                    </tr>
+                                    <tr>
+                                        <div class="row ">
+                                            <td class="col-xs-12 col-md-12">
+                                                <div class="row row1">
+                                                    <div class="col-xs-4 col-md-1">
+                                                        <img src="./img/user.PNG">
+                                                    </div>
+                                                    <div class="col-xs-8 col-md-10">
+                                                        <div class="cmt">Is the feet reflexology deal still available?</div>
+                                                        <div class="time">Davin - 2 weeks ago</div>
+                                                    </div>
+                                                </div>
+                                                <div class="row row1">
+                                                    <div class="col-xs-4 col-md-1">
+                                                        <img src="./img/admin.PNG">
+                                                    </div>
+                                                    <div class="col-xs-8 col-md-11">
+                                                        <div class="cmt">Hi there! Yes it is :)</div>
+                                                        <div class="time">Fave - answered within 28 minutes</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </div>
+                                    </tr>
+
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+<!--                    detail service-->
+                    <div id="SI" class="tab-pane  ">
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
+                                <h4 style="color:#424242;">Service infomation Cooking class for children</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 col-xs-5">
+                                <p style=" font-size:17px;font-weight:500;">Service include: </p>
+                            </div>
+                            <div class="col-md-10 col-xs-7">
+                                <p>1x 1 year warranty</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
+                                <p style=" font-size:17px;font-weight:500;">Gereral features:</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                    <tr class="active">
+                                        <td>SKU</td>
+                                        <td>CO956HAAA29594VNAMZ-3856412</td>
+                                    </tr>
+                                    <tr class="active">
+                                        <td>Wanrranty time</td>
+                                        <td>1 year</td>
+                                    </tr>
+                                    <tr class="active">
+                                        <td>Type of wanrraty</td>
+                                        <td>Invoice</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+<!--                    customers review-->
+                    <div id="CR" class="tab-pane fade in active">
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12" style="border-bottom:2px solid red;">
+                                <h4 style="color:black;">Write a Review</h4>
+                            </div>
+                        </div>
+                        <form action="" method="">
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
+                                <h5 style="font-weight:bold;">Leave a comment about items</h5>
+                            </div>
+                            <div class="col-md-12 col-xs-12"> 
+                                <textarea class="col-md-12 col-xs-12" style="height:100px;"></textarea>
+                            </div>
+                        </div>
+                        <div class="row" style="border-top:2px solid #e0e0e0; margin-top:20px;">
+                            <div class="col-md-12 col-xs-12" >
+                                <h5 style="font-weight:bold;">Rate Your Satisfaction</h5>
+                            </div>
+                            <div class="col-md-8 col-xs-12"> 
+                                <table class="table " style="border: 1px solid #e0e0e0">
+                                    <thead>
+                                        <tr style="background:#f5f5f5">
+                                            <td class="col-md-2"></td>
+                                            <td class="col-md-2 text-center">Item</td>
+                                            <td class="col-md-2 text-center">Price</td>
+                                            <td class="col-md-2 text-center">Delivery</td>
+                                            <td class="col-md-2 text-center">Service</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="col-md-2 text-center" style="background:#f5f5f5">Satisfied</td>
+                                            <td class="col-md-2 text-center">
+                                                <input type="radio" name="item" align="center">
+                                            </td>
+                                            <td class="col-md-2 text-center">
+                                                <input type="radio" name="price">
+                                            </td>
+                                            <td class="col-md-2 text-center">
+                                                <input type="radio" name="delivery">
+                                            </td>
+                                            <td class="col-md-2 text-center">
+                                                <input type="radio" name="service">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-2 text-center" style="background:#f5f5f5">Dissatisfied</td>
+                                            <td class="col-md-2 text-center">
+                                                <input type="radio" name="item">
+                                            </td>
+                                            <td class="col-md-2 text-center">
+                                                <input type="radio" name="price">
+                                            </td>
+                                            <td class="col-md-2 text-center">
+                                                <input type="radio" name="delivery">
+                                            </td>
+                                            <td class="col-md-2 text-center">
+                                                <input type="radio" name="service">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-12 col-xs-12">
+                                <h5 style="font-weight:bold;">Recommend this Product</h5>
+                            </div>
+                            <div class="col-md-12 col-xs-12">
+                                <div class="row">
+                                    <div class="col-md-2 ">
+                                        <input type="radio" name="recommend"> Highly Recommended
+                                    </div>
+                                    <div class="col-md-2 ">
+                                        <input type="radio" name="recommend"> Recommended
+                                    </div>
+                                    <div class="col-md-2 ">
+                                        <input type="radio" name="recommend"> Neutral
+                                    </div>
+                                    <div class="col-md-2 ">
+                                        <input type="radio" name="recommend"> Do Not Recommended
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="border-top:2px solid #e0e0e0; margin-top:20px;">
+                            <div class="col-md-12 col-xs-12 text-center" style="margin-top:20px; ">
+                                <button type="submit" value="Submit" name="submitRV" class="btn btn-primary" >Submit</button>
+                                <button type="reset" value="Cancel" name="cancelRV" class="btn" style="margin-left:20px;">Cancel</button>
+                            </div>
+                        </div>
+                            </form>
+<!--
+                        <div class="row">
+                            <div class="col-md-10 col-xs-12">
+                                <h4 style="color:#424242;">Review for service Cooking class for children</h4>
+                            </div>
+                            <div class="col-md-2 col-xs-12">
+                                <div class="form-group">
+                                    <button type="button" class="form-control btn btn-primary text-right" data-toggle="collapse"
+                                            data-target="#comment">Review
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="comment" class="collapse">
+                            <div class="row " style="background:#fafafa">
+                                <div class="col-md-12">
+                                    <h5 style="color:#424242;">Please share your opinion about this service</h5>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-xs-12">
+                                        <div class="row">
+                                            <div class="col-md-4 col-xs-8">
+                                                <section class='rating-widget'>
+                                                    <div class='rating-stars text-center'>
+                                                        <ul id='stars'>
+                                                            <li class='star' title='Poor' data-value='1'>
+                                                                <i class='fa fa-star fa-fw'></i>
+                                                            </li>
+                                                            <li class='star' title='Fair' data-value='2'>
+                                                                <i class='fa fa-star fa-fw'></i>
+                                                            </li>
+                                                            <li class='star' title='Good' data-value='3'>
+                                                                <i class='fa fa-star fa-fw'></i>
+                                                            </li>
+                                                            <li class='star' title='Excellent' data-value='4'>
+                                                                <i class='fa fa-star fa-fw'></i>
+                                                            </li>
+                                                            <li class='star' title='WOW!!!' data-value='5'>
+                                                                <i class='fa fa-star fa-fw'></i>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+
+                                                </section>
+                                            </div>
+                                            <div class="col-md-2 col-xs-3">
+                                                <p class="text-message" style="color:#424242;font-size:18px;padding-top:2px;"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <label class="label-control">Title</label>
+                                </div>
+                                <div class="col-md-8 form-group">
+                                    <input class="form-control" style="width:500px;"/>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <label class="label-control">Comment</label>
+                                </div>
+                                <div class="col-md-8 form-group">
+                                    <textarea class="form-control" style="height:200px;width:500px;"></textarea>
+                                </div>
+                                <div class="col-md-8 form-group">
+                                    <button type="submit" class="btn btn-primary">Send comment</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <style>
+                                .star-margin {
+                                    margin-top: 5px;
+                                }
+                            </style>
+                            <div class="col-md-8">
+                                <div class="row">
+                                    <div class="col-md-2 text-right">
+                                        5 star
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div style="width:175px; height:18px;background:#e0e0e0">
+                                            <div style="width:35px; height:18px; background:#f9a825">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        1
+                                    </div>
+                                </div>
+                                <div class="row star-margin">
+                                    <div class="col-md-2 text-right">
+                                        4 star
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div style="width:175px; height:18px;background:#e0e0e0">
+                                            <div style="width:35px; height:18px; background:#f9a825">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 ">
+                                        1
+                                    </div>
+                                </div>
+                                <div class="row star-margin">
+                                    <div class="col-md-2 text-right">
+                                        3 star
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div style="width:175px; height:18px;background:#e0e0e0">
+                                            <div style="width:0px; height:18px; background:#f9a825">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        0
+                                    </div>
+                                </div>
+                                <div class="row star-margin">
+                                    <div class="col-md-2 text-right">
+                                        2 star
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div style="width:175px; height:18px;background:#e0e0e0">
+                                            <div style="width:0px; height:18px; background:#f9a825">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        0
+                                    </div>
+                                </div>
+                                <div class="row star-margin">
+                                    <div class="col-md-2 text-right">
+                                        1 star
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div style="width:175px; height:18px;background:#e0e0e0">
+                                            <div style="width:0px; height:18px; background:#f9a825">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        0
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+-->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+            .row1 {
+                margin-top: 15px;
+            }
+
+            .cmt {
+                font-weight: 400;
+                font-size: 15px;
+            }
+
+            .time {
+                color: #afb0ae;
+            }
+        </style>
+        <script src="./js/slider_vertical.js"></script>
+        <script src="./js/stars.js"></script>
+    </body>
+</html>

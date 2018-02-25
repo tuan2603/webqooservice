@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<% include partials/header %>
+	</head>
+	<body>
+		<!--header-->
+	<header class="container-fluid myheader" >
+			<!--                   menu1-->
+					<% include partials/menu1 %>
+					<!--             end menu1-->
+			<!--logo and search-->
+					<% include partials/search %>
+<!--            end logo and search-->
+<!--            menu2 min width:767px-->
+					<% include partials/menu2 %>
+<!--            end menu2-->
+	</header>
+<!--        end header-->
+			<!--content-->
+			<div>
+					<% include page/homepage %>
+			</div>
+<!--        end content-->
+			<!--footer-->
+			<footer class="container-fluid myfooter" >
+					<div class="container" style="margin-top: 50px;">
+							<div class="row">
+									<div class="col-md-6" >
+											<div class="col-md-12" >
+													<p style="font-size:20px; color: #3c3c3c; font-weight: 400;font-family: 'Time News Roman';">Payment Methods</p>
+											</div>
+											<div class="col-md-12" style="margin-top:20px;">
+													<span><img src="img/visa.png" class="pay"/></span>
+													<span><img src="img/mastercard.png" class="pay"/></span>
+													<span><img src="img/AME.png" class="pay"/></span>
+													<span><img src="img/paypal.png" class="pay"/></span>
+													<span><img src="img/tq1.png" class="pay"/></span>
+													<span><img src="img/applepay.PNG" class="pay"/></span>
+													<span><img src="img/chat.PNG" class="pay"/></span>
+											</div>
+									</div>
+									<div class="col-md-6" >
+											<p>Multiple Payment Options</p>
+											<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+											<p>Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum..email away. Keep in touch with us for the best deals in Singapore</p>
+									</div>
+							</div>
+					</div>
+					<div class="container  myheader " style="margin-top:30px;" >
+							<div class="row">
+									<div class="col-md-3">
+											<h4>CONTACT US</h4>
+											<span><a href="">Help Center</a></span><br>
+											<span><a href="">Payment</a></span><br>
+											<span><a href="">How to buy</a></span><br>
+											<span><a href="">How to return</a></span><br>
+											<span><a href="">Contact us</a></span>
+									</div>
+									<div class="col-md-4">
+											<h4>QOOSERVICE</h4>
+											<span><a href="">About Qoo</a></span><br>
+											<span><a href="">Sell on Qoo</a></span><br>
+											<span><a href="">Careers</a></span><br>
+											<span><a href="">Tems and Condition</a></span><br>
+											<span><a href="">Privacy Policy</a></span>
+											<span><a href="">Press & Media</a></span><br>
+											<span><a href="">All Brands</a></span><br>
+											<span><a href="">Campainge Term & COndition</a></span>
+									</div>
+									<div class="col-md-4 ">
+											<h4>SUBSCRIBE</h4>
+											<span>
+													<input type="text" name="txtDCM" class="form-control" placeholder="Your email address">
+											</span>
+											<span >
+													<button type="submit" class="btn" name="sign" value="SIGNUP" style="height:34px;background-color:#e8a131;border-color:#e8a131;color:white;margin-top:15px;">SIGN UP</button>
+											</span>
+											<span>
+													<h4 style="margin-top:40px;">FOLLOW US</h4>
+											</span>
+											<span>
+													<a href=""><i class="fa fa-facebook-square fa-3x social"></i></a>
+													<a href=""><i class="fa fa-twitter-square fa-3x social"></i></a>
+													<a href=""><i class="fa fa-envelope-square fa-3x social"></i></a>
+													<a href=""><i class="fa fa-camera fa-3x social" ></i></a>
+											</span>
+									</div>
+							</div>
+					</div>
+			</footer>
+<!--        end footer-->
+<!--    xu ly submenu1-->
+	<script>
+			$("[data-toggle=popover]").each(function(i, obj) {
+					$(this).popover({
+							html: true,
+							content: function() {
+									var id = $(this).attr('id')
+									return $('#popover-content-' + id).html();
+							}
+					});
+			});
+	</script>
+	</body>
+</html>

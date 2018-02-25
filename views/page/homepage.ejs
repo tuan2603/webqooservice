@@ -1,0 +1,111 @@
+<% var service = users %>
+
+  <style>
+    @media (min-width: 768px) {
+      .col-sm-3cols {
+        position: relative;
+        min-height: 5px;
+        padding-right: 5px;
+      }
+    }
+    @media (min-width: 768px) {
+      .col-sm-3cols {
+        width: 33.33333%;
+        float: left;
+      }
+    }
+  </style>
+
+  <div class="spe-cor" style="background-color:#e0e0e0;">
+    <!-- image-->
+    <div class="container text-center">
+      <div class="row" style="padding:10px;">
+        <div class="col-sm-3cols">
+          <a href="index.php?page=ServiceDetails">
+            <img src="./img/homepage/1.png" alt="h1" class="img-responsive center-block">
+          </a>
+        </div>
+        <div class="col-sm-3cols">
+          <img src="./img/homepage/2.png" alt="h2" class="img-responsive center-block">
+          <img src="./img/homepage/3.png" alt="h3" class="img-responsive center-block">
+        </div>
+        <div class="col-sm-3cols">
+          <img src="./img/homepage/4.png" alt="h4" class="img-responsive center-block">
+        </div>
+
+        <div class="col-sm-3cols">
+          <img src="./img/homepage/5.png" alt="h5" class="img-responsive center-block">
+        </div>
+        <div class="col-sm-3cols">
+          <img src="./img/homepage/6.png" alt="h6" class="img-responsive center-block">
+        </div>
+        <div class="col-sm-3cols">
+          <img src="./img/homepage/7.png" alt="h7" class="img-responsive center-block">
+        </div>
+      </div>
+    </div>
+    <!-- flash sale-->
+    <div class="container" style="background-color:#e0e0e0;">
+      <div class="row">
+        <div class="col-xs-4 col-lg-4">
+          <h3 style="color:#d32f2f; font-weight:bold;float:left; padding-top:5px;">FLASH SALE</h3>
+        </div>
+        <div class="col-xs-8 col-lg-8">
+          <h2 style="float:left;">
+            <div style="float:left;" id="days"></div>
+            <p style="float:left;margin-left:5px;">:</p>
+            <div style="float:left;margin-left:5px;" id="hours"></div>
+            <p style="float:left;margin-left:5px;">:</p>
+            <div style="float:left;margin-left:5px;" id="minutes"></div>
+            <p style="float:left;margin-left:5px;">:</p>
+            <div style="float:left;margin-left:5px;" id="seconds"></div>
+          </h2>
+        </div>
+
+      </div>
+    </div>
+    <% include ../page/sliderhome %>
+
+    <% include ../page/topservice %>
+  </div>
+
+
+<script type="text/javascript">
+function countdown() {
+
+  var now = new Date();
+  var eventDate = new Date('2018,02,09');
+  var currentTime = now.getTime();
+  var eventTime = eventDate.getTime();
+  var remTime = eventTime - currentTime;
+  var s = Math.floor(remTime / 1000);
+  var m = Math.floor(s / 60);
+  var h = Math.floor(m / 60);
+  var d = Math.floor(h / 24);
+
+  h %= 24;
+  m %= 60;
+  s %= 60;
+
+  h = (h < 10)
+    ? "0" + h
+    : h;
+  m = (m < 10)
+    ? "0" + m
+    : m;
+  s = (s < 10)
+    ? "0" + s
+    : s;
+
+  document.getElementById("days").textContent = d;
+  document.getElementById("days").innerText = d;
+
+  document.getElementById("hours").textContent = h;
+  document.getElementById("minutes").textContent = m;
+  document.getElementById("seconds").textContent = s;
+  setTimeout(countdown, 1000);
+
+}
+
+countdown();
+</script>

@@ -1,0 +1,47 @@
+<div class="spe-cor ">
+  <div class="container text-center">
+    <div id="sale" class="carousel carousel-correspondence slide " data-ride="carousel" data-interval="5000">
+      <div class="col-sm-12 col-md-12 " style="background-color:white;">
+        <div class="carousel-inner ">
+          <% var i = 0 %>
+            <!-- star foreach -->
+            <% service.forEach(function(user){ %>
+              <!-- star if -->
+              <%if (user.flash_sale == 1) { %>
+
+                <div class="item
+
+                    <%if (i == 0) { %>
+                        active
+                      <% } %>
+                   ">
+                  <!-- end if -->
+
+                  <div class=" col-xs-12 col-sm-4 col-md-3 col-sm-5cols">
+                    <div class="row">
+                      <a href="index.php?page=ServiceDetails&id=<?php echo $services_id; ?>">
+                        <img src="<%- user.image[0] %>" alt="<%- user.image[0] %>" style="width:215px;height:215px;" class=" img-responsive center-block "/>
+                        <h6>
+                          <%= user.name %></h6>
+                        <h5>USD
+                          <%= user.sell_price %></h5>
+                        <h5 class="lineThrough sale">USD
+                          <%= user.old_price %></h5>
+                        <h5 class="sale"><%= (user.sell_price/user.old_price*100).toFixed(2) %></h5>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              <% } %>
+              <!-- end if -->
+              <%  i++  })%>
+                <!-- end foreach -->
+
+              </div>
+            </div>
+            <a data-slide="prev" href="#sale" class="left carousel-control" style="margin-top:80px;">
+              <span class="glyphicon glyphicon-chevron-left" style="color:#135894;"></span></a>
+            <a data-slide="next" href="#sale" class="right carousel-control" style="margin-top:80px;">
+              <span class="glyphicon glyphicon-chevron-right" style="color:#135894;"></span></a>
+          </div>
+        </div>
